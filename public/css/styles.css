@@ -664,6 +664,9 @@ progress {
   gap: 1rem;
 }
 
+.larger-text{
+  font-size: 1.25em;
+}
 
 .row {
   --bs-gutter-x: 1.5rem;
@@ -10843,7 +10846,7 @@ textarea.form-control-lg {
 header.masthead {
   position: relative;
   background-color: #343a40;
-  background: url("../assets/img/bg-masthead.jpg") no-repeat center center;
+  background: url("../assets/img/cover.jpeg") no-repeat center center;
   background-size: cover;
   padding-top: 8rem;
   padding-bottom: 8rem;
@@ -10851,7 +10854,7 @@ header.masthead {
 header.masthead:before {
   content: "";
   position: absolute;
-  background-color: #1c375e;
+  background-color: black;
   height: 100%;
   width: 100%;
   top: 0;
