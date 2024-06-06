@@ -72,7 +72,18 @@
     left: 50%;
     transform: translate(-50%, -50%);
   } */
+
+  .mapHeader{
+    margin-top: 2em;
+  }
   
+.mapLegend{
+  display: flex;
+  justify-content: center;
+  gap: 3em;
+  margin: 2em 0 0.5em 0;
+}
+
   
   .centered-y {
     position: absolute;
