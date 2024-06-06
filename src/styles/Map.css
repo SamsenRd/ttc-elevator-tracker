@@ -1,0 +1,152 @@
+/* html {
+    background: rgb(26, 26, 26);
+    color: rgb(229, 229, 229); 
+    text-align: center;
+    font-family: "Roboto", Helvetica, sans-serif;
+  } */
+  
+  /* body {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 100px;
+    overflow-x: hidden;
+  } */
+  
+  /* .description {
+    max-width: 600px;
+    margin: 0 auto;
+    color: rgba(229, 229, 229, 0.7);
+  } */
+  
+  /* div, img, footer {
+    position: relative;
+    box-sizing: border-box;
+  } */
+  
+  /* h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-family: "Roboto Condensed", Helvetica, sans-serif;
+    font-weight: 300;
+  } */
+  
+  /* h1 { font-size: 36pt; }
+  h2 { font-size: 24pt; }
+  h3 { font-size: 18pt; }
+  h4 { font-size: 16pt; }
+  h5 { font-size: 14pt; }
+  h6 { font-size: 12pt; }
+  
+  p {
+    font-size: 12pt;
+    margin-bottom: 12pt;
+  } */
+  
+  /* strong {
+    font-weight: 900;
+    font-family: "Roboto Condensed", Helvetica, sans-serif;
+    color: rgb(229, 229, 229);
+  }
+  
+  a {
+    transition: color 0.25s ease-in-out;
+    font-family: "Roboto Condensed", Helvetica, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgb(197, 235, 255); 
+  }
+  
+  a:visited {
+    color: rgb(197, 235, 255);
+  }
+  
+  li.active a,
+  a:hover,
+  a:active {
+    color: rgb(229, 229, 229);
+  } */
+  
+  /* .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } */
+  
+  
+  .centered-y {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    /* left: 50%;
+    right: 50%; */
+    transform: translateY(-50%);
+    text-align: center;
+  }
+  
+  .distribution-map {
+    position: relative;
+    width: 100%;
+    /* padding: 20px; */
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+  
+  .distribution-map > img {
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .map-point {
+    cursor: pointer;
+    outline: none;
+    z-index: 0;
+    position: absolute;
+    width: 20px; /* $map-dot-size */
+    height: 20px; /* $map-dot-size */
+    border-radius: 20px; /* $map-dot-size / 2 */
+    opacity: 0.8;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.25s ease-in-out 0.25s, width 0.25s ease-in-out 0.25s, height 0.25s ease-in-out 0.25s, z-index 0.25s ease-in-out 0.25s;
+    background: rgba(26, 26, 26, 0.85); /* transparentize($color-background, 0.15) */
+    border: 5px solid #c13b37; /* $map-dot-size/8 solid $color-highlight-dark */
+  }
+  
+  .map-point .content {
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: overlay;
+  }
+  
+  .map-point:active,
+  .map-point:focus {
+    margin: 0;
+    padding: 0;
+    opacity: 1;
+    width: 300px;
+    height: 220px;
+    color: rgb(229, 229, 229);
+    z-index: 1;
+    transition: opacity 0.25s ease-in-out, width 0.25s ease-in-out, height 0.25s ease-in-out;
+  }
+  
+  .map-point:active .content,
+  .map-point:focus .content {
+    opacity: 1;
+    transition: opacity 0.25s ease-in-out 0.25s, height 0 ease-in-out 0.25s, overflow 0 ease-in-out 0.25s;
+    overflow: hidden;
+  }
+  
+  .map-point:active .content a:hover,
+  .map-point:active .content a:active,
+  .map-point:focus .content a:hover,
+  .map-point:focus .content a:active {
+    color: rgb(197, 235, 255); /* lighten($color-highlight, 10%) */
+  }
+  
