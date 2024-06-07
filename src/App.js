@@ -1,20 +1,35 @@
-// import React from "react";
-// import { MapContainer, ImageOverlay, Marker, Popup } from "react-leaflet";
-// import "leaflet/dist/leaflet.css";
-// import L from "leaflet";
-// import useElevatorData from "./UseElevatorData.js"
-
+import React, { useEffect, useState } from "react";
 import Hero from "../src/components/Hero.js"
 import Map from "../src/components/Map.js"
 import './App.css';
 
-// delete L.Icon.Default.prototype._getIconUrl;
-
 export default function App() {
+  const [elevatorData, setElevatorData] = useState([]);
+  const [lastUpdated, setLastUpdated] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      try{
+        const response = await fetch("https://alerts.ttc.ca/api/alerts/live-alerts");
+        const data = await response.json();
+        const elevatorStatuses = data.accesibility;
+        const lastUpdatedTime = new Date(data.lastUpdated).toLocaleTimeString();
+        setElevatorData(elevatorStatuses);
+        setLastUpdated(lastUpdatedTime);
+      }catch(error){
+        console.log("Error fetching data", error);
+      }
+    }
+
+    fetchData();
+    const interval = setInterval(fetchData, 60000);
+    return () => clearInterval(interval);
+  }, [])
+
   return (
     <div className="App">
       <Hero />
-      <Map />
+      <Map elevatorData={elevatorData} lastUpdated={lastUpdated}/>
     </div>
   );
 }

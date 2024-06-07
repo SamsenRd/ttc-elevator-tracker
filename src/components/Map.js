@@ -4,17 +4,20 @@ import ttcImg from "../images/TTC_Subway_Map.png"
 import stations from "../data/StationsData.js"
 
 
-export default function Map() {
+export default function Map({elevatorData, lastUpdated}) {
+    const getStationStatus = stationName =>{
+        const stationAlert = elevatorData.find(alert => alert.station === stationName);
+        return stationAlert ? stationAlert.status : "In service";
+    }
     return (
         <>
             <div class="mapHeader">
                 <h2>Real-time Elevator Updates</h2>
-                <hr></hr>
                 <div class="mapLegend">
                     <p>O --- Out of service</p>
                     <p>O --- In service</p>
                 </div>
-                <p><i>Click the icons below for more details.</i></p>
+                <p><i>Last updated: {lastUpdated}</i></p>
             </div>
 
             <div className="distribution-map">
@@ -24,7 +27,7 @@ export default function Map() {
                         <div className="content">
                             <div className="centered-y">
                                 <h2>{station.name}</h2>
-                                <p>{station.details}</p>
+                                <p>Status: {getStationStatus(station.name)}</p>
                             </div>
                         </div>
                     </button>
