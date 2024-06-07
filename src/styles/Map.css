@@ -76,6 +76,16 @@
   .mapHeader{
     margin-top: 2em;
   }
+
+  .mapHeader > h2{
+    font-size: 3rem;
+  }
+
+  hr{
+    width: 20%;
+    margin: 1em auto;
+    border: 3px solid #023E8A ;
+  }
   
 .mapLegend{
   display: flex;
@@ -125,7 +135,7 @@
     transform: translate(-50%, -50%);
     transition: opacity 0.25s ease-in-out 0.25s, width 0.25s ease-in-out 0.25s, height 0.25s ease-in-out 0.25s, z-index 0.25s ease-in-out 0.25s;
     background: rgba(26, 26, 26, 0.85); /* transparentize($color-background, 0.15) */
-    border: 5px solid #c13b37; /* $map-dot-size/8 solid $color-highlight-dark */
+    border: 5px solid #FF6D00; /* $map-dot-size/8 solid $color-highlight-dark */
   }
   
   .map-point .content {

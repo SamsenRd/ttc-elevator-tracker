@@ -9,6 +9,7 @@ export default function Map() {
         <>
             <div class="mapHeader">
                 <h2>Real-time Elevator Updates</h2>
+                <hr></hr>
                 <div class="mapLegend">
                     <p>O --- Out of service</p>
                     <p>O --- In service</p>
