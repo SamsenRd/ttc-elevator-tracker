@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Hero from "../src/components/Hero.js"
-import Map from "../src/components/Map.js"
+import Hero from "./components/Hero.mjs"
+import Map from "./components/Map.mjs"
 import './App.css';
 
 export default function App() {

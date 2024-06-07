@@ -1,7 +1,7 @@
 import React from "react"
 import "../styles/Map.css"
 import ttcImg from "../images/TTC_Subway_Map.png"
-import stations from "../data/StationsData.js"
+import stations from "../data/StationsData.mjs"
 
 
 export default function Map({elevatorData, lastUpdated}) {
