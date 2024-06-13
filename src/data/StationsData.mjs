@@ -59,49 +59,51 @@ let stations = [
   { top: "29%", left: "70%", name: "Don Mills" },
 ];
 
-
-let elevatorData = [];
-
-// Function to get the stations
-export const getStations = () => stations;
-
-// Function to get elevator data
-export const getElevatorData = () => elevatorData;
-
-// Function to update station data
-export const updateStationData = async () => {
-  try {
-    const response = await fetch('https://alerts.ttc.ca/api/alerts/live-alerts');
-    const data = await response.json();
-    const elevatorStatuses = data.accessibility;
-
-    const updatedStations = stations.map(station => {
-      const matchingStatus = elevatorStatuses.find(status =>
-        status.url.includes(station.name.replace(/\s+/g, "-").toLowerCase())
-      );
-      if (matchingStatus) {
-        return { ...station, status: matchingStatus.title };
-      } else {
-        return { ...station, status: "In Service" };
-      }
-    });
-
-    stations = updatedStations;
-    elevatorData = elevatorStatuses;
-
-    console.log("Updated stations with real-time data:", stations);
-  } catch (error) {
-    console.error("Error updating station data:", error);
-  }
-};
-
-// Initial call to updateStationData
-updateStationData();
-
-// Set interval to update every minute
-setInterval(updateStationData, 60000);
-
 export default stations;
+
+
+// let elevatorData = [];
+
+// // Function to get the stations
+// export const getStations = () => stations;
+
+// // Function to get elevator data
+// export const getElevatorData = () => elevatorData;
+
+// // Function to update station data
+// export const updateStationData = async () => {
+//   try {
+//     const response = await fetch('https://alerts.ttc.ca/api/alerts/live-alerts');
+//     const data = await response.json();
+//     const elevatorStatuses = data.accessibility;
+
+//     const updatedStations = stations.map(station => {
+//       const matchingStatus = elevatorStatuses.find(status =>
+//         status.url.includes(station.name.replace(/\s+/g, "-").toLowerCase())
+//       );
+//       if (matchingStatus) {
+//         return { ...station, status: matchingStatus.title };
+//       } else {
+//         return { ...station, status: "In Service" };
+//       }
+//     });
+
+//     stations = updatedStations;
+//     elevatorData = elevatorStatuses;
+
+//     console.log("Updated stations with real-time data:", stations);
+//   } catch (error) {
+//     console.error("Error updating station data:", error);
+//   }
+// };
+
+// // Initial call to updateStationData
+// updateStationData();
+
+// // Set interval to update every minute
+// setInterval(updateStationData, 60000);
+
+// export default stations;
 
 
 

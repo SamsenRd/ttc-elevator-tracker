@@ -1,4 +1,4 @@
-import React from "react"
+
 
 fetch("https://alerts.ttc.ca/api/alerts/live-alerts")
     .then(response => response.json())

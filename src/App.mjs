@@ -121,29 +121,29 @@
 import React, { useEffect, useState } from "react";
 import Hero from "./components/Hero.mjs";
 import Map from "./components/Map.mjs";
-import { getElevatorData } from "./data/StationsData.jsx";
+import { getElevatorData } from "./data/StationsData.mjs";
 import "./App.css";
 
 export default function App() {
   const [lastUpdated, setLastUpdated] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = getElevatorData();
-        const lastUpdatedTime = new Date(
-          data.lastUpdated
-        ).toLocaleTimeString();
-        setLastUpdated(lastUpdatedTime);
-      } catch (error) {
-        console.log("Error fetching data", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const data = getElevatorData();
+  //       const lastUpdatedTime = new Date(
+  //         data.lastUpdated
+  //       ).toLocaleTimeString();
+  //       setLastUpdated(lastUpdatedTime);
+  //     } catch (error) {
+  //       console.log("Error fetching data", error);
+  //     }
+  //   };
 
-    fetchData();
-    const interval = setInterval(fetchData, 60000);
-    return () => clearInterval(interval);
-  }, []);
+  //   fetchData();
+  //   const interval = setInterval(fetchData, 60000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
     <div className="App">

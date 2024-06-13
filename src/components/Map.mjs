@@ -251,33 +251,109 @@
 
 
 
+// import React, { useState, useEffect } from "react";
+// import "../styles/Map.css";
+// import ttcImg from "../images/TTC_Subway_Map.png";
+// import { getStations, updateStationData } from "../data/StationsData.jsx";
+
+// export default function Map() {
+//   const [stations, setStations] = useState(getStations());
+//   const [lastUpdated, setLastUpdated] = useState(new Date().toLocaleTimeString());
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       await updateStationData();
+//       setStations(getStations());
+//       const now = new Date().toLocaleTimeString();
+//       setLastUpdated(now);
+//     };
+
+//     fetchData(); // Fetch data immediately on mount
+//     const interval = setInterval(fetchData, 60000); // Fetch data every minute
+
+//     return () => clearInterval(interval); // Cleanup interval on unmount
+//   }, []);
+
+//   const getStationStatus = stationName => {
+//     const station = stations.find(station => station.name === stationName);
+//     return station ? station.status : "In Service";
+//   };
+
+//   return (
+//     <>
+//       <div className="mapHeader">
+//         <h2>Real-time Elevator Updates</h2>
+//         <div className="mapLegend">
+//           <p>O --- Out of service</p>
+//           <p>O --- In service</p>
+//         </div>
+//         <p>
+//           <i>Last updated: {lastUpdated}</i>
+//         </p>
+//       </div>
+
+//       <div className="distribution-map">
+//         <img src={ttcImg} alt="TTC Subway and Streetcar Map" />
+//         {stations.map((station, index) => (
+//           <button
+//             className="map-point"
+//             style={{ top: station.top, left: station.left }}
+//             key={index}
+//           >
+//             <div className="content">
+//               <div className="centered-y">
+//                 <h2>{station.name}</h2>
+//                 <p>Status: {getStationStatus(station.status)}</p>
+//               </div>
+//             </div>
+//           </button>
+//         ))}
+//       </div>
+//     </>
+//   );
+// }
+
+
+
 import React, { useState, useEffect } from "react";
+import ReactDOM from 'react-dom';
 import "../styles/Map.css";
 import ttcImg from "../images/TTC_Subway_Map.png";
-import { getStations, updateStationData } from "../data/StationsData.jsx";
+import stations from "../data/StationsData.mjs";
 
 export default function Map() {
-  const [stations, setStations] = useState(getStations());
-  const [lastUpdated, setLastUpdated] = useState(new Date().toLocaleTimeString());
+  const [statusUpdates, setStatusUpdates] = useState([]);
+  const [lastUpdated, setLastUpdated] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      await updateStationData();
-      setStations(getStations());
-      const now = new Date().toLocaleTimeString();
-      setLastUpdated(now);
-    };
+  useEffect(() =>{
+    fetch("https://alerts.ttc.ca/api/alerts/live-alerts")
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error)
+    });
+  })
 
-    fetchData(); // Fetch data immediately on mount
-    const interval = setInterval(fetchData, 60000); // Fetch data every minute
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     await updateStationData();
+  //     setStations(getStations());
+  //     const now = new Date().toLocaleTimeString();
+  //     setLastUpdated(now);
+  //   };
 
-    return () => clearInterval(interval); // Cleanup interval on unmount
-  }, []);
+  //   fetchData(); // Fetch data immediately on mount
+  //   const interval = setInterval(fetchData, 60000); // Fetch data every minute
 
-  const getStationStatus = stationName => {
-    const station = stations.find(station => station.name === stationName);
-    return station ? station.status : "In Service";
-  };
+  //   return () => clearInterval(interval); // Cleanup interval on unmount
+  // }, []);
+
+  // const getStationStatus = stationName => {
+  //   const station = stations.find(station => station.name === stationName);
+  //   return station ? station.status : "In Service";
+  // };
 
   return (
     <>
@@ -303,7 +379,7 @@ export default function Map() {
             <div className="content">
               <div className="centered-y">
                 <h2>{station.name}</h2>
-                <p>Status: {getStationStatus(station.status)}</p>
+                <p>Status: </p>
               </div>
             </div>
           </button>
