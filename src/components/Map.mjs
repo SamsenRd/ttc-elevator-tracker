@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "../styles/Map.css"
 import axios from "axios";
 import ttcImg from "../images/TTC_Subway_Map.png";
+import redIcon from "../images/red-icon.png"
+import greenIcon from "../images/green-icon.png"
 
 export default function Map() {
   const [stations, setStations] = useState([
@@ -91,16 +93,23 @@ export default function Map() {
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, [stations]);
 
-
-
-
   return (
     <>
       <div className="mapHeader">
         <h2>Real-time Elevator Updates</h2>
         <div className="mapLegend">
-          <p>O --- Out of Service</p>
-          <p>O --- In service</p>
+          <div class="iconSymbol">
+            <p>
+              <img src={redIcon} class="redIconImg" alt="Out of service icon" />
+              Out of Service
+            </p>
+          </div>
+          <div class="iconSymbol">
+          <p>
+            <img src={greenIcon} class="greenIconImg" alt="In service icon" />
+            In service
+          </p>
+          </div>
         </div>
         <p>
           <i>Last updated: {lastUpdated}</i>

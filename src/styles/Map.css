@@ -10,8 +10,14 @@
 .mapLegend {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 1.5em;
   margin-bottom: 0.5em;
+}
+
+.iconSymbol{
+  display: flex;
+  align-items: center;
 }
 
 .map {
@@ -29,10 +35,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.content{
-
 }
 
 .centered-y {
@@ -70,15 +72,20 @@
   transform: translate(-50%, -50%);
   transition: opacity 0.25s ease-in-out 0.25s, width 0.25s ease-in-out 0.25s, height 0.25s ease-in-out 0.25s, z-index 0.25s ease-in-out 0.25s;
   background: rgba(26, 26, 26, 0.85); /* transparentize($color-background, 0.15) */
-  border: 5px solid #c13b37; /* $map-dot-size/8 solid $color-highlight-dark */
+  border: 5px solid black; /* $map-dot-size/8 solid $color-highlight-dark */
 }
 
 .map-point.out-of-service {
   background-color: red;
 }
 
+.redIconImg, .greenIconImg {
+  width: 20px;
+  margin-right: 0.5em;
+}
+
 .map-point.in-service {
-  background-color: green;
+  background-color: #008000;
 }
 
 .map-point .content {
