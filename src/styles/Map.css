@@ -1,25 +1,25 @@
-  .mapHeader{
-    margin-top: 2em;
-  }
+.mapHeader {
+  margin-top: 2em;
+}
 
-  .mapHeader > h2{
-    font-size: 3rem;
-    margin-bottom: 0.5em;
-  }
+.mapHeader > h2 {
+  font-size: 3rem;
+  margin-bottom: 0.5em;
+}
 
-.mapLegend{
+.mapLegend {
   display: flex;
   justify-content: center;
   gap: 1.5em;
   margin-bottom: 0.5em;
-  }
+}
 
-.map{
+.map {
   width: 100%;
   position: relative;
 }
 
-.mapImg{
+.mapImg {
   position: relative;
   width: 100%;
 }
@@ -31,12 +31,15 @@
   transform: translate(-50%, -50%);
 }
 
+.content{
+
+}
+
 .centered-y {
   position: absolute;
   width: 100%;
   top: 50%;
   left: 50%;
-  /* right: 50%; */
   transform: translateY(-50%);
   text-align: center;
 }
@@ -44,7 +47,6 @@
 .distribution-map {
   position: relative;
   width: 100%;
-  /* padding: 20px; */
   box-sizing: border-box;
   margin: 0 auto;
 }
@@ -69,6 +71,14 @@
   transition: opacity 0.25s ease-in-out 0.25s, width 0.25s ease-in-out 0.25s, height 0.25s ease-in-out 0.25s, z-index 0.25s ease-in-out 0.25s;
   background: rgba(26, 26, 26, 0.85); /* transparentize($color-background, 0.15) */
   border: 5px solid #c13b37; /* $map-dot-size/8 solid $color-highlight-dark */
+}
+
+.map-point.out-of-service {
+  background-color: red;
+}
+
+.map-point.in-service {
+  background-color: green;
 }
 
 .map-point .content {
