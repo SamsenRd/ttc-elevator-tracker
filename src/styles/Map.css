@@ -37,11 +37,14 @@
   transform: translate(-50%, -50%);
 }
 
+.content{
+  position: relative;
+}
+
 .centered-y {
   position: absolute;
   width: 100%;
   top: 50%;
-  left: 50%;
   transform: translateY(-50%);
   text-align: center;
 }
@@ -122,4 +125,9 @@
 .map-point:focus .content a:hover,
 .map-point:focus .content a:active {
   color: rgb(197, 235, 255); /* lighten($color-highlight, 10%) */
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+ 
 }
