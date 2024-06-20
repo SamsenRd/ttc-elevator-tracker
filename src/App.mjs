@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Hero from "./components/Hero.mjs";
 import Map from "./components/Map.mjs";
 import "./App.css";
