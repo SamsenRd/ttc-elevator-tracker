@@ -6,6 +6,30 @@ import redIcon from "../images/red-icon.png"
 import greenIcon from "../images/green-icon.png"
 
 export default function Map() {
+
+  // Function to close the popup
+  const closePopup = () => {
+    const popup = document.getElementById("popup")
+    popup.classList.remove("show")
+  }
+
+  useEffect(() => {
+    const handleResize = () => {
+      const popup = document.getElementById("popup")
+      if(window.innerWidth <= 768){
+        popup.classList.add("show")
+      }else{
+        popup.classList.remove("show")
+      }
+    }
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    
+    return() => {
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
+
   const [stations, setStations] = useState([
     { top: "8.2%", left: "22.5%", name: "Vaughan Metropolitan Centre", status: "In service" },
     { top: "12.5%", left: "22.5%", name: "Highway 407", status: "In service" },
@@ -95,6 +119,14 @@ export default function Map() {
 
   return (
     <>
+    {/* popup */}
+      <div id="popup" className="popup">
+        <div className="popup-content">
+          <h2>Turn your phone sideways for optimal viewing</h2>
+          <button onClick={closePopup}>Got it</button>
+        </div>
+      </div>
+
       <div className="mapHeader">
         <h2>Real-time Elevator Updates</h2>
         <div className="mapLegend">
@@ -105,10 +137,10 @@ export default function Map() {
             </p>
           </div>
           <div class="iconSymbol">
-          <p>
-            <img src={greenIcon} class="greenIconImg" alt="In service icon" />
-            In service
-          </p>
+            <p>
+              <img src={greenIcon} class="greenIconImg" alt="In service icon" />
+              In service
+            </p>
           </div>
         </div>
         <p>
