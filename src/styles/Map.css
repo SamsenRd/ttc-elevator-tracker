@@ -154,9 +154,10 @@
   padding: 1em;
   background-color: #f1f1f1;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   font-size: 1.2em;
+  gap: 10px;
 }
 
 .accordion-header:hover {
@@ -176,7 +177,9 @@
 }
 
 .accordion-icon {
+  margin-left: auto;
   font-size: 1.5em;
+
 }
 
 /* Responsive styles for mobile */
@@ -185,7 +188,37 @@
     display: none;
   }
 
+  .mapHeader > h2 {
+    font-size: 2rem;
+    margin-bottom: 1em;
+  }
+
+  .mapLegend {
+    margin-bottom: 1em;
+  }
+
   .accordion-container {
     display: block;
+    margin-top: 2em;
+  }
+
+  .number-detail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: yellow;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+  }
+
+  .two{
+    background-color: green;
+    color: white;
+  }
+
+  .four{
+    background-color: purple;
+    color: white;
   }
 }

@@ -143,7 +143,7 @@ export default function Map() {
       <div className="accordion-container">
         <div className={`accordion-item ${activeIndex === 0 ? "active" : ""}`} onClick={() => toggleAccordion(0)}>
           <div className="accordion-header">
-            Line 1
+            Line <span className="number-detail one">1</span> (Yonge - University)
             <span className="accordion-icon">{activeIndex === 0 ? "-" : "+"}</span>
           </div>
           <div className="accordion-content">
@@ -152,7 +152,7 @@ export default function Map() {
         </div>
         <div className={`accordion-item ${activeIndex === 1 ? "active" : ""}`} onClick={() => toggleAccordion(1)}>
           <div className="accordion-header">
-            Line 2
+            Line <span className="number-detail two">2</span> (Bloor - Danforth)
             <span className="accordion-icon">{activeIndex === 1 ? "-" : "+"}</span>
           </div>
           <div className="accordion-content">
@@ -161,7 +161,7 @@ export default function Map() {
         </div>
         <div className={`accordion-item ${activeIndex === 2 ? "active" : ""}`} onClick={() => toggleAccordion(2)}>
           <div className="accordion-header">
-            Line 4
+            Line <span className="number-detail four">4</span> (Sheppard)
             <span className="accordion-icon">{activeIndex === 2 ? "-" : "+"}</span>
           </div>
           <div className="accordion-content">

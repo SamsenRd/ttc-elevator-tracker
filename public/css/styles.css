@@ -70,6 +70,12 @@
 .navbar-brand >img{
   width: 50px;
 }
+
+@media(max-width: 768px){
+  .navbar-brand >img{
+    margin: 0 auto !important;
+  }
+}
 *,
 *::before,
 *::after {
@@ -252,10 +258,6 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
 @media(max-width: 768px){
   .btn, .btn-primary, .nav-btn{
     display: none !important;
-  }
-
-  .navbar-brand img{
-    text-align: center !important;
   }
 }
 
@@ -637,14 +639,14 @@ progress {
 
 .hero-btn{
   display: none !important;
-  padding: 1em !important
+  padding: 1em !important;
 }
 
 @media (max-width: 768px){
   .hero-btn{
     display: block !important;
     width: 50% !important;
-    margin: 1.5em auto !important;
+    margin: 2em auto !important;
   }
 }
 
@@ -691,6 +693,7 @@ progress {
     max-width: 1320px;
   }
 }
+
 
 @media (max-width: 462px) {
   .navbar .container {
@@ -7729,6 +7732,7 @@ textarea.form-control-lg {
 
 .mb-5 {
   margin-bottom: 3rem !important;
+  font-size: 3.7rem !important;
 }
 
 .mb-auto {
