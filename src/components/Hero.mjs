@@ -10,10 +10,11 @@ export default function Hero() {
                             <div class="text-center text-white">
                                 <h1 class="mb-5">Welcome to TTC Elevator Tracker</h1>
                                 <p class="larger-text">Track elevator statuses at TTC stations in real-time.</p>
-                                <div class="search-input">
+                                <a class="btn btn-primary hero-btn" href="#signup">Latest TTC Updates</a>
+                                {/* <div class="search-input">
                                     <input type="text" class="form-control form-control-lg" placeholder="Enter a station"></input>
                                     <button type="submit" class="btn btn-primary btn-lg">Search</button>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>

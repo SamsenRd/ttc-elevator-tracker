@@ -82,6 +82,7 @@
   }
 }
 
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -247,6 +248,17 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   color: inherit;
   text-decoration: none;
 }
+
+@media(max-width: 768px){
+  .btn, .btn-primary, .nav-btn{
+    display: none !important;
+  }
+
+  .navbar-brand img{
+    text-align: center !important;
+  }
+}
+
 
 pre,
 code,
@@ -621,6 +633,21 @@ progress {
   font-size: 0.875em;
   color: #6c757d;
 }
+
+
+.hero-btn{
+  display: none !important;
+}
+
+@media (max-width: 768px){
+  .hero-btn{
+    display: block !important;
+    width: 50% !important;
+    margin: 1.5em auto !important;
+  }
+}
+
+
 
 .container,
 .container-fluid,
