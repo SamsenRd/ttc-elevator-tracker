@@ -637,6 +637,7 @@ progress {
 
 .hero-btn{
   display: none !important;
+  padding: 1em !important
 }
 
 @media (max-width: 768px){
