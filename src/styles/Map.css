@@ -23,6 +23,7 @@
 .map {
   width: 100%;
   position: relative;
+  display: block;
 }
 
 .mapImg {
@@ -137,58 +138,54 @@
   color: rgb(197, 235, 255); /* lighten($color-highlight, 10%) */
 }
 
-/* Responsive styles for mobile */
-@media (max-width: 768px) {
+.accordion-container {
+  display: none;
+  max-width: 80%;
+  margin: 0 auto;
+}
 
-  .map-point:active,
-  .map-point:focus {
-    width: 150px;
-    height: 100px;
-  }
+.accordion-item {
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 
-  .centered-y {
-    top: 55%;
-  }
+.accordion-header {
+  padding: 1em;
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2em;
+}
 
-  .centered-y > h2{
-    font-size: 0.7rem;
-    font-weight: bold;
-  }
+.accordion-header:hover {
+  background-color: #e1e1e1;
+}
 
-  .centered-y > p{
-    font-size: 0.7rem;
-  }
+.accordion-content {
+  padding: 1em;
+  display: none;
+  background-color: #fff;
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+}
 
-  .map-point {
-    width: 0px; /* $map-dot-size */
-    height: 6px; /* $map-dot-size */
-    border: 1px solid black; /* $map-dot-size/8 solid $color-highlight-dark */
-    
-  }
+.accordion-item.active .accordion-content {
+  display: block;
+}
 
-
+.accordion-icon {
+  font-size: 1.5em;
 }
 
 /* Responsive styles for mobile */
-@media (max-width: 576px) {
-
-  .map-point:active,
-  .map-point:focus {
-    width: 125px;
-    height: 75px;
+@media (max-width: 768px) {
+  .map {
+    display: none;
   }
 
-  .centered-y {
-    top: 60%;
+  .accordion-container {
+    display: block;
   }
-
-  .centered-y > h2{
-    font-size: 0.7rem;
-    font-weight: bold;
-  }
-
-  .centered-y > p{
-    font-size: 0.7rem;
-  }
-
 }

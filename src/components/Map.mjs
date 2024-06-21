@@ -67,6 +67,7 @@ export default function Map() {
   ]);
 
   const [lastUpdated, setLastUpdated] = useState("");
+  const [activeIndex, setActiveIndex] = useState(null);
 
   useEffect(() => {
     const fetchLiveData = async () => {
@@ -92,6 +93,10 @@ export default function Map() {
 
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, [stations]);
+
+  const toggleAccordion = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  }
 
   return (
     <>
@@ -132,6 +137,37 @@ export default function Map() {
             </div>
           </button>
         ))}
+      </div>
+
+      {/* Accordian list */}
+      <div className="accordion-container">
+        <div className={`accordion-item ${activeIndex === 0 ? "active" : ""}`} onClick={() => toggleAccordion(0)}>
+          <div className="accordion-header">
+            Line 1
+            <span className="accordion-icon">{activeIndex === 0 ? "-" : "+"}</span>
+          </div>
+          <div className="accordion-content">
+            <p>Content for section 1</p>
+          </div>
+        </div>
+        <div className={`accordion-item ${activeIndex === 1 ? "active" : ""}`} onClick={() => toggleAccordion(1)}>
+          <div className="accordion-header">
+            Line 2
+            <span className="accordion-icon">{activeIndex === 1 ? "-" : "+"}</span>
+          </div>
+          <div className="accordion-content">
+            <p>Content for section 2</p>
+          </div>
+        </div>
+        <div className={`accordion-item ${activeIndex === 2 ? "active" : ""}`} onClick={() => toggleAccordion(2)}>
+          <div className="accordion-header">
+            Line 4
+            <span className="accordion-icon">{activeIndex === 2 ? "-" : "+"}</span>
+          </div>
+          <div className="accordion-content">
+            <p>Content for section 3</p>
+          </div>
+        </div>
       </div>
     </>
   );
